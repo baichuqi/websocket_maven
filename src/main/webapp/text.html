@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>product list</title>
+	 <!-- <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+	<style type="text/css">
+	body > * {
+		width: 100%;
+		border: 0;
+		padding: 0;
+		margin: 0;
+	}
+	header {
+		height: 80px;
+		background: gray;
+		position: fixed;
+	}
+	</style>
+</head>
+<body>
+	<header></header>
+	<div>
+		<div id="ad"></div>
+		<div id="detail"></div>
+	</div>
+	<footer></footer>
+</body>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript">
+var test = 2;
+var t_url = "http://localhost:8080/Product/1";
+var data = {};
+/*var xhl = new XMLHttpRequest();
+xhl.open("GET","127.0.0.1:8080/Product/1","true")
+xhl.overrideMimeType("text/plain; charset=x-user-defined");
+xhl.onreadystatechange = function(e) {
+	alert("ok");
+}
+xhl.send();*/
+$(function () {
+	alert(test);
+	//getProduct();
+	$.ajax({
+		type:"GET",
+		url:t_url,
+		contentType:"application/json; charset=utf-8",
+		data:data,
+		dataType:"jsonp",
+		xhrFields:{withCredentials:true},
+		crossDomain:true,
+		success:function test(data) {
+			// body...
+			alert(data);
+		},
+		error:function(){
+			alert("error!");
+		}
+		});
+})
+function getProduct() {
+	// body...
+	$.get(t_url,function(evt){
+		alert(evt);
+	},'json');
+}
+</script>
+
+</html>
